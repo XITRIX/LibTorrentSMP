@@ -1,0 +1,33 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name LibTorrent
+import Foundation
+@_exported import LibTorrent
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension LibTorrent.Session.Settings.EncryptionPolicy : Swift.Codable {
+}
+extension LibTorrent.Session.Settings.ProxyType : Swift.Codable {
+}
+extension LibTorrent.TorrentHandle.State : Swift.Codable {
+}
+extension Foundation.Data {
+  public var hex: Swift.String {
+    get
+  }
+}
+extension LibTorrent.TorrentFile {
+  convenience public init?(with file: Foundation.URL)
+  convenience public init?(with data: Foundation.Data)
+}
+@available(iOS 13.0.0, *)
+extension LibTorrent.TorrentFile {
+  #if compiler(>=5.3) && $AsyncAwait
+  convenience public init?(remote url: Foundation.URL) async
+  #endif
+}
+extension LibTorrent.MagnetURI {
+  convenience public init?(with url: Foundation.URL)
+}

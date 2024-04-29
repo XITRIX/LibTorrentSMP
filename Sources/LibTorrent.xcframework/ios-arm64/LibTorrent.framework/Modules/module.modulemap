@@ -1,0 +1,11 @@
+framework module LibTorrent {
+  umbrella header "LibTorrent.h"
+  export *
+
+  module * { export * }
+}
+
+module LibTorrent.Swift {
+  header "LibTorrent-Swift.h"
+  requires objc
+}
